@@ -3,6 +3,9 @@
     <% @songs.each do |song| %>
       <div class="well well-lg">
         <h2><%= song.name %></h2>
+        <% if song.artist.avatar.exists? != nil %>
+          <%= image_tag song.artist.avatar.url(:thumb) %>
+        <% end %>
 	<h3>by <%= song.artist.name %> </h3>
 	<p><% "#{song.rating}".to_i.times do |rank| %>
 	  <span class="glyphicon glyphicon-star"></span>
